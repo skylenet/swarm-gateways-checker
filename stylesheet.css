@@ -1,0 +1,23 @@
+* {
+  font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;
+}
+.online {
+  color: #218838;
+}
+
+.offline {
+  color: #c82333;;
+}
+
+.loading {
+  color: #0c5460;
+}
+
+.results {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+a {
+  color: #0a0a0a;
+}
