@@ -10,16 +10,26 @@
     <h1>Swarm Gateways Check</h1>
     <p> This check is performed from your browser. </p>
 
-    <h2>{{onlineCount()}}/{{results.length}} gateways were able to serve {{ hash }}</h2>
-    <ul class="results" ng-repeat="res in results | orderBy: 'isOnline'">
-      <li>
-        <span class="loading" ng-show="res.isLoading"><i class="fas fa-spin fa-spinner"></i></span>
-        <span class="online"  ng-show="res.isOnline"><i class="fas fa-check-circle"></i></span>
-        <span class="offline" ng-show="!res.isOnline && !res.isLoading"><i class="fas fa-times-circle"></i></span>
-        <a href="{{res.checkURL}}">{{res.checkURL}}</a>
-        <span>{{ res.errror }}</span>
-      </li>
-    </ul>
+
+
+    <form novalidate class="simple-form">
+      <label>Hash: <input type="text" name="input" ng-model="inputHash" required ng-trim></label>
+      <input type="submit" ng-click="fetchFile(inputHash)" value="Fetch" />
+    </form>
+
+    <div ng-show="results.length > 0">
+      <h2>{{onlineCount()}}/{{results.length}} gateways were able to serve {{ hash }}</h2>
+      <ul class="results" ng-repeat="res in results | orderBy: 'isOnline'">
+        <li>
+          <span class="loading" ng-show="res.isLoading"><i class="fas fa-spin fa-spinner"></i></span>
+          <span class="online"  ng-show="res.isOnline"><i class="fas fa-check-circle"></i></span>
+          <span class="offline" ng-show="!res.isOnline && !res.isLoading"><i class="fas fa-times-circle"></i></span>
+          <span>{{formatBytes(res.size)}}</span>
+          <a href="{{res.checkURL}}">{{res.checkURL}}</a>
+          <span>{{ res.errror }}</span>
+        </li>
+      </ul>
+    </div>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js" type="text/javascript"></script>
     <script src="app.js"></script>
   </body>
