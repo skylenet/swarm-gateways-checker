@@ -2,7 +2,7 @@ var app = angular.module('app',[]);
 
 
 app.controller('mainController', ['$scope','$http', function($scope,$http) {
-  $scope.inputHash = "74f5b67c088a34a7b51612671300c9f040f4b8b322fa234d26069c17eb00428a";
+  $scope.inputHash = "e26f94e3d6b1e9e3b8f773dcd75ecf1082ca1dc945c15ad44b59e93a541937d0";
   $scope.results = [];
 
   $scope.fetchFile = function(hash){
